@@ -48,4 +48,4 @@ jobs:
       - name: Reiniciar PM2 correctamente
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-90-210-163.compute-1.amazonaws.com \
-            "pm2 restart api_tavotell || pm2 start /var/www/tavochivix/server.js --name api"
+            "pm2 restart api_tavotell || pm2 start /var/www/tavochivix/server.js --name api_tavotell"
