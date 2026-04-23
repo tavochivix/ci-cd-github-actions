@@ -29,13 +29,6 @@ jobs:
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      - name: Agregar al host conocido
-        run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          ssh-keyscan -T 30 -H ec2-3-90-210-163.compute-1.amazonaws.com >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-
       - name: Copiar archivos al EC2 con rsync
         run: |
           rsync -avz -e "ssh -o StrictHostKeyChecking=no" \
