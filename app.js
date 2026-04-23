@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "API Funcionando" });
+    res.status(200).json({ message: "Tamo activo" });
 })
 
-app.get("/clients", (req, res) => {
-    res.status(200).json({ message: "Ok", clients: ["uno","dos"]  });
+app.get("/clientes", (req, res) => {
+    res.status(200).json({ message: "Ok", clients: ["Primer Cliente","Segundo Cliente"]  });
 })
 
 module.exports = app;
