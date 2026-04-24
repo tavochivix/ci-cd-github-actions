@@ -34,14 +34,14 @@ jobs:
           rsync -avz -e "ssh -o StrictHostKeyChecking=no" \
             --exclude='.git' \
             --exclude='node_modules' \
-            ./ ubuntu@ec2-3-90-210-163.compute-1.amazonaws.com:/var/www/tavochivix
+            ./ ubuntu@ec2-54-145-24-29.compute-1.amazonaws.com:/var/www/tavochivix
 
       - name: Instalar las librerias en el servidor
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-90-210-163.compute-1.amazonaws.com \
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-145-24-29.compute-1.amazonaws.com \
             "cd /var/www/tavochivix && npm install"
 
       - name: Reiniciar PM2 correctamente
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-90-210-163.compute-1.amazonaws.com \
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-145-24-29.compute-1.amazonaws.com \
             "pm2 restart api_tavotell || pm2 start /var/www/tavochivix/server.js --name api_tavotell"
